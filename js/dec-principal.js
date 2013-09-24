@@ -9,7 +9,10 @@ var DEBUG_MAP = 0;
 var map;
 // Definición de los identificadores para el mapa y la fuente de los datos en **Google Drive**.
 // Sustituir por vuestros identificadores específicos.
-var data_id = '0Asc521FZEVkpdFNEYl9UTnNkV0FOdXdEME9keVhnanc';
+var data_id = '0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c'; //'0Asc521FZEVkpdFNEYl9UTnNkV0FOdXdEME9keVhnanc';
+// #EspaciosEnDesuso
+// https://docs.google.com/a/colaborativa.eu/spreadsheet/ccc?key=0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c&usp=sharing
+// https://docs.google.com/a/colaborativa.eu/spreadsheet/ccc?key=0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c#gid=0
 var map_id = 'colaborativa.OSMCordoba';
 
 // Función Principal
