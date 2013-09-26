@@ -24,13 +24,13 @@ mmg_google_docs_spreadsheet_1(data_id, mapData);
 
 
 // Creación e inicialización del objeto mapa
-$('#map').mapbox('colaborativa.OSMCordoba', function(mapTemp, tilejson) {
+$('#map').mapbox('colaborativa.map-n0oyvf6x', function(mapTemp, tilejson) {
     if( DEBUG_MAP) {console.log("creating map");}
     map = mapTemp;
-    map.setZoomRange(14, 16);
-    map.centerzoom({ lat: 37.885, lon: -4.79 }, 14);
+    map.setZoomRange(16, 18);
+    map.centerzoom({ lat: 37.88544715739598, lon: -4.77256178855896 }, 16);
     map.setPanLimits([{ lat: 37.9452, lon: -4.8641 }, { lat: 37.8133, lon: -4.6835 }]);
-    map.zoom(14, true);
+    map.zoom(16, true);
 });
 
 // Funciones Auxiliares
@@ -80,7 +80,7 @@ function mapData(f) {
                 masinfo = '<a href="' + f.properties.masinfo + '">Enlace externo</a>';
                 $('#contentDetail').append(masinfo);
             }
-            $('#contentDetail').append('<p class="footer"><a href="http://colaborativa.eu"> Colaborativa.eu</a> 2013. Datos abiertos con licencia <a href="http://opendatacommons.org/licenses/odbl/">ODC-ODbL</a>. Textos e imágenes de la web con licencia <a href="http://creativecommons.org/licenses/by/2.0/es/">CC-BY-SA 2.0.</a></p>');
+            $('#contentDetail').append('<p class="footer">Aplicación web derivada de <a href="http://disponibleencordoba.colaborativa.eu/">#DisponibleEnCordoba</a> y desarrollada en el marco del Encuentro de Colectivos Sociales de los Barrios de la Zona Centro.</p><p class="footer">Datos liberados con licencia <a href="http://opendatacommons.org/licenses/odbl/">ODC-ODbL</a> (en formato <a id="download_json" href="">JSON </a> y <a id="download_csv" href=""> CSV</a>) Código libre con licencia  <a href="http://opensource.org/licenses/MIT">MIT</a> disponible en <a href="https://github.com/msanchezmora/EspaciosEnDesuso">GitHub</a>. Textos e imágenes de la web con licencia <a href="http://creativecommons.org/licenses/by/3.0/es/">CC BY 3.0 ES.</a></p>');
           });
         return elem;
     });
