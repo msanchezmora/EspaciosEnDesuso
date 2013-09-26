@@ -10,7 +10,7 @@ var map;
 // Definición de los identificadores para el mapa y la fuente de los datos en **Google Drive**.
 // Sustituir por vuestros identificadores específicos.
 var data_id = '0Asc521FZEVkpdFNEYl9UTnNkV0FOdXdEME9keVhnanc';
-var map_id = 'colaborativa.OSMCordoba';
+var map_id = 'colaborativa.map-n0oyvf6x';
 
 // Función Principal
 // ------------------------------
