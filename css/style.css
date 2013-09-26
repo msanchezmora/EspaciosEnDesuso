@@ -232,7 +232,7 @@ a.zoomer {
   right:0;
   bottom:0;
   width:279px;
-  background:rgb(250,250,250);
+  background-color:#f4f8ff;
   border-left:1px solid #ccc;
   overflow-x:hidden;
   overflow-y:auto;

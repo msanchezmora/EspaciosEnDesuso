@@ -48,7 +48,7 @@ function mmg_google_docs_spreadsheet_1(id, callback) {
                 },
                 // Obtener cada columna de la fila actual en formato texto.
                 properties: {
-                    'marker-color':'#0d5ca8',
+                    'marker-color':'#0247c9',
                     'titulo': entry['gsx$titulo'].$t,
                     'direccion': entry['gsx$direccion'].$t,
                     'descripcion': entry['gsx$descripcion'].$t,  
