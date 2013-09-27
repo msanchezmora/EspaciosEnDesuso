@@ -57,6 +57,7 @@ function mapData(f) {
             var titulo = '<h2>' + f.properties.titulo + '</h2>'
             $('#contentDetail').removeClass('inactivo').addClass('activo'); 
             $('#contentDetail').html('');
+            $('#contentDetail').append('<div id="cabecera"></div>');
             $('#contentDetail').append('<a class="closeWindow" href="#">&#10006;</a><script> $(".closeWindow").click(function(){ $("#contentDetail").removeClass("activo").addClass("inactivo"); return false; });</script>'); 
             $('#contentDetail').append('<h1 class="map-title"><span class="element-invisible">#DisponibleEnCordoba</span></h1>');
             $('#contentDetail').append(titulo); 
