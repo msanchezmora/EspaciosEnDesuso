@@ -14,7 +14,7 @@ var data_id = '0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c'; //'0Asc521FZEVkpdF
 // https://docs.google.com/a/colaborativa.eu/spreadsheet/ccc?key=0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c&usp=sharing
 // https://docs.google.com/a/colaborativa.eu/spreadsheet/ccc?key=0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c#gid=0
 var map_id = 'colaborativa.map-n0oyvf6x';
-
+console.log("creating map");
 // Creación e inicialización del objeto mapa
 $('#map').mapbox('colaborativa.map-n0oyvf6x', function(mapTemp, tilejson) {
     if( DEBUG_MAP) {console.log("creating map");}
@@ -24,7 +24,8 @@ $('#map').mapbox('colaborativa.map-n0oyvf6x', function(mapTemp, tilejson) {
     map.setPanLimits([{ lat: 37.9452, lon: -4.8641 }, { lat: 37.8133, lon: -4.6835 }]);
     map.zoom(16, true);
 });
-
+$( document ).ready(function() {
+console.log("ready");
 // Función Principal
 // ------------------------------
 // Obtención de los datos de la spreadsheet en **Google Drive**. 
@@ -111,3 +112,4 @@ function download_data() {
     // La llamada URL para formato `JSON` es:
     $('#download_json').attr('href', 'https://spreadsheets.google.com/feeds/list/' + data_id + '/od6/public/values?alt=json-in-script');
 }
+});
