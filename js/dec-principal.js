@@ -13,25 +13,25 @@ var data_id = '0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c'; //'0Asc521FZEVkpdF
 // #EspaciosEnDesuso
 // https://docs.google.com/a/colaborativa.eu/spreadsheet/ccc?key=0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c&usp=sharing
 // https://docs.google.com/a/colaborativa.eu/spreadsheet/ccc?key=0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c#gid=0
-var map_id = 'colaborativa.OSMCordoba';
-
+var map_id = 'colaborativa.map-n0oyvf6x';
+console.log("creating map");
+// Creación e inicialización del objeto mapa
+$('#map').mapbox('colaborativa.map-n0oyvf6x', function(mapTemp, tilejson) {
+    if( DEBUG_MAP) {console.log("creating map");}
+    map = mapTemp;
+    map.setZoomRange(16, 18);
+    map.centerzoom({ lat: 37.88544715739598, lon: -4.77256178855896 }, 16);
+    map.setPanLimits([{ lat: 37.9452, lon: -4.8641 }, { lat: 37.8133, lon: -4.6835 }]);
+    map.zoom(16, true);
+});
+$( document ).ready(function() {
+console.log("ready");
 // Función Principal
 // ------------------------------
 // Obtención de los datos de la spreadsheet en **Google Drive**. 
 // La función `mg_google_docs_spreadsheet_1` está definida en `dec-google_docs.js`.
 // Al terminar y ya que se ha definido callback, se invocará la función mapData definida más abajo.
 mmg_google_docs_spreadsheet_1(data_id, mapData);
-
-
-// Creación e inicialización del objeto mapa
-$('#map').mapbox('colaborativa.OSMCordoba', function(mapTemp, tilejson) {
-    if( DEBUG_MAP) {console.log("creating map");}
-    map = mapTemp;
-    map.setZoomRange(14, 16);
-    map.centerzoom({ lat: 37.885, lon: -4.79 }, 14);
-    map.setPanLimits([{ lat: 37.9452, lon: -4.8641 }, { lat: 37.8133, lon: -4.6835 }]);
-    map.zoom(14, true);
-});
 
 // Funciones Auxiliares
 // --------------------
@@ -57,6 +57,7 @@ function mapData(f) {
             var titulo = '<h2>' + f.properties.titulo + '</h2>'
             $('#contentDetail').removeClass('inactivo').addClass('activo'); 
             $('#contentDetail').html('');
+            $('#contentDetail').append('<div id="cabecera"></div>');
             $('#contentDetail').append('<a class="closeWindow" href="#">&#10006;</a><script> $(".closeWindow").click(function(){ $("#contentDetail").removeClass("activo").addClass("inactivo"); return false; });</script>'); 
             $('#contentDetail').append('<h1 class="map-title"><span class="element-invisible">#DisponibleEnCordoba</span></h1>');
             $('#contentDetail').append(titulo); 
@@ -80,7 +81,7 @@ function mapData(f) {
                 masinfo = '<a href="' + f.properties.masinfo + '">Enlace externo</a>';
                 $('#contentDetail').append(masinfo);
             }
-            $('#contentDetail').append('<p class="footer"><a href="http://colaborativa.eu"> Colaborativa.eu</a> 2013. Datos abiertos con licencia <a href="http://opendatacommons.org/licenses/odbl/">ODC-ODbL</a>. Textos e imágenes de la web con licencia <a href="http://creativecommons.org/licenses/by/2.0/es/">CC-BY-SA 2.0.</a></p>');
+            $('#contentDetail').append('<p class="footer">Aplicación web derivada de <a href="http://disponibleencordoba.colaborativa.eu/">#DisponibleEnCordoba</a> y desarrollada en el marco del Encuentro de Colectivos Sociales de los Barrios de la Zona Centro.</p><p class="footer">Datos liberados con licencia <a href="http://opendatacommons.org/licenses/odbl/">ODC-ODbL</a> (en formato <a id="download_json" href="">JSON </a> y <a id="download_csv" href=""> CSV</a>) Código libre con licencia  <a href="http://opensource.org/licenses/MIT">MIT</a> disponible en <a href="https://github.com/msanchezmora/EspaciosEnDesuso">GitHub</a>. Textos e imágenes de la web con licencia <a href="http://creativecommons.org/licenses/by/3.0/es/">CC BY 3.0 ES.</a></p>');
           });
         return elem;
     });
@@ -111,3 +112,4 @@ function download_data() {
     // La llamada URL para formato `JSON` es:
     $('#download_json').attr('href', 'https://spreadsheets.google.com/feeds/list/' + data_id + '/od6/public/values?alt=json-in-script');
 }
+});
