@@ -14,6 +14,7 @@ var data_id = '0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c'; //'0Asc521FZEVkpdF
 // https://docs.google.com/a/colaborativa.eu/spreadsheet/ccc?key=0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c&usp=sharing
 // https://docs.google.com/a/colaborativa.eu/spreadsheet/ccc?key=0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c#gid=0
 var map_id = 'colaborativa.map-n0oyvf6x';
+var markerLayer;
 console.log("creating map");
 // Creación e inicialización del objeto mapa
 $('#map').mapbox('colaborativa.map-n0oyvf6x', function(mapTemp, tilejson) {
