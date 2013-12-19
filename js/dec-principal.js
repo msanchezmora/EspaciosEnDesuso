@@ -40,7 +40,8 @@ function mapData(f) {
     map.markerLayer.setGeoJSON(features);
     var mustacheTemplate = '<a class="closeWindow" href="#">&#10006;</a>' +
     '<script> $(".closeWindow").click(function(){ $("#contentDetail").removeClass("activo").addClass("inactivo"); return false; });</script>'+
-    '<h1 class="map-title"><span class="element-invisible">#DisponibleEnCordoba</span></h1>'+
+    '<div id="cabecera"></div>'+
+    '<h1 class="map-title"><span class="element-invisible">#EspaciosEnDesuso</span></h1>'+
     '<h2>{{titulo}}</h2>'+
     '<h3>{{direccion}}</h3>'+
     '<div class="imagen"><img src="{{enlace}}" alt="{{titulo}}">'+
