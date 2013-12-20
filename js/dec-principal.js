@@ -14,12 +14,7 @@ var data_id = '0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c'; //'0Asc521FZEVkpdF
 // https://docs.google.com/a/colaborativa.eu/spreadsheet/ccc?key=0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c&usp=sharing
 // https://docs.google.com/a/colaborativa.eu/spreadsheet/ccc?key=0ApaZkqgevJCgdGI1RkRqd2NuTFM4azVLWFZ4UHh1X2c#gid=0
 var map_id = 'colaborativa.map-n0oyvf6x';
-<<<<<<< HEAD
-var markerLayer;
-console.log("creating map");
-=======
 
->>>>>>> master
 // Creación e inicialización del objeto mapa
 var map = L.mapbox.map('map', map_id, {gridControl: false});
 map.setView({ lat: 37.885, lon: -4.79 }, 14);
