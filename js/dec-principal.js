@@ -32,9 +32,9 @@ mmg_google_docs_spreadsheet_1(data_id, mapData);
 // definir los eventos asociados a acciones sobre el mapa (mouse click, mouse over) y
 // añadir información en la barra lateral izquiera sobre el marker (pincho o edificio) seleccionado.
 function setIcon(value, index, ar) {
-    if (value.properties['categoria'] != "")
+    var c = value.properties['categoria']
+    if (c != "")
     {
-        var c = value.properties['categoria']
         c = c.split(",");// Nos quedamos con la primera categoría. TODO: mejorar
         switch (c[0]) {
             case "Vivienda":
