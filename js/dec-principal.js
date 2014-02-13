@@ -31,12 +31,54 @@ mmg_google_docs_spreadsheet_1(data_id, mapData);
 // La función `mapData` se encarga de definir todas las capas del mapa, crear los markers (pinchos),
 // definir los eventos asociados a acciones sobre el mapa (mouse click, mouse over) y
 // añadir información en la barra lateral izquiera sobre el marker (pincho o edificio) seleccionado.
+function setIcon(value, index, ar) {
+    if (value.properties['categoria'] != "")
+    {
+        var c = value.properties['categoria']
+        c = c.split(",");// Nos quedamos con la primera categoría. TODO: mejorar
+        switch (c[0]) {
+            case "Vivienda":
+                value.properties['marker-color']="#9900CC"
+                break
+            case "Edificio público":
+                value.properties['marker-color']="#9b91c1"
+                break
+            case "Solar":
+                value.properties['marker-color']="#663300"
+                break
+            case "Otros":
+                value.properties['marker-color']="#339900"
+                break
+            case "SAREB":
+                value.properties['marker-color']="#ff0000"
+                break
+            case "Espacio Liberado":
+                value.properties['marker-color']="#f7cf08"
+                break
+            case "Finca Pública (tierras)":
+                value.properties['marker-color']="#ff14ff"
+                break
+            case "Trusted Reports":
+                value.properties['marker-color']="#339900"
+                break
+            case "Propiedad de Banco":
+                value.properties['marker-color']="#ff7c0a"
+                break
+            case "PINFO Stop Desahucios":
+                value.properties['marker-color']="#ff0000"
+                break
+  
+        }
+    }
+}
+
 function mapData(f) {
     if( DEBUG_MAP) {console.log("function mapData");}
     // La variable `f` contiene todos los markers del mapa, cada uno con sus propiedades asociadas: 
     // título, descripción, etc.
     features = f;
      // Ahora se añaden los markers al mapa en formato GeoJSON.  
+    features.forEach(setIcon);
     var markerLayer = L.mapbox.markerLayer(features)
     .addTo(map);
     
@@ -51,6 +93,7 @@ function mapData(f) {
     '$("#contentDetail h3").append("'+"<div class='imagen'><img src='{{enlace}}' alt='{{titulo}}''> </div>"+'");'+
     '}</script>'+
     '<p id="descripcion" >{{descripcion}}</p>'+
+    '<p id="categoria" >Categoría: {{categoria}}</p>'+
     '<script> if ("{{referencia}}" != ""){'+
     '$("#contentDetail #descripcion").append("' + "<p> <em>Referencia catastral:</em><br><a href='https://www1.sedecatastro.gob.es/OVCFrames.aspx?TIPO=consulta'>{{referencia}}</a> </p>"+'");'+
     '}</script>'+
