@@ -37,6 +37,9 @@ function setIcon(value, index, ar) {
     {
         c = c.split(",");// Nos quedamos con la primera categoría. TODO: mejorar
         switch (c[0]) {
+			case "SAREB":
+                value.properties['marker-color']="#ff0000"
+                break
             case "Vivienda":
                 value.properties['marker-color']="#9900CC"
                 break
@@ -48,9 +51,6 @@ function setIcon(value, index, ar) {
                 break
             case "Otros":
                 value.properties['marker-color']="#339900"
-                break
-            case "SAREB":
-                value.properties['marker-color']="#ff0000"
                 break
             case "Espacio Liberado":
                 value.properties['marker-color']="#f7cf08"
@@ -66,6 +66,8 @@ function setIcon(value, index, ar) {
                 break
             case "PINFO Stop Desahucios":
                 value.properties['marker-color']="#ff0000"
+                //var json = '{"iconUrl": "https://2ecd17ef76a321f3680f-9a0a6e2cf992d84f23080833b4e95ed2.ssl.cf2.rackcdn.com/espaciosendesuso/category_14_1391165401.png", "iconSize": [100, 100], "iconAnchor": [50, 50],"popupAnchor": [0, -55],"className": "dot"}',   obj = JSON.parse(json);
+                //value.properties['icon']=obj
                 break
   
         }
